@@ -39,7 +39,8 @@ Numpy
 cvzone
 
 Step 4: Download the Pretrained Model
-Download the trained model (latest_model.h5) from <a href="(https://drive.google.com/drive/u/0/folders/1vOTgT9pXMivWmHGtpyWSC3mMUWRiEL0h)" target="_blank">this link</a>
+Download the trained model (latest_model.h5) from 
+<a href="https://drive.google.com/drive/u/0/folders/1vOTgT9pXMivWmHGtpyWSC3mMUWRiEL0h" target="_blank">this link</a>
 
 # Usage
 Running the Web Application
