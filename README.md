@@ -1,18 +1,6 @@
 # Sign-language-recognition-system-using-deep-learning
 
-Table of Contents
-Project Overview
-Features
-Installation
-Usage
-Model Architecture
-Dataset
-Results
-Web Application (Flask)
-Contributing
-License
-Acknowledgments
-Project Overview
+# Project Overview
 This project implements a Sign Language Recognition System using deep learning techniques. It recognizes hand gestures from live video or images, translating them into corresponding letters of the alphabet using a Convolutional Neural Network (CNN). The system is integrated into a web application using Flask for real-time gesture recognition through a webcam.
 
 Features
