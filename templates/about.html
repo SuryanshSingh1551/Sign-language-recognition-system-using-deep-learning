@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Layout | CodingLab</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/about.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <style>
+        body {
+            height: 100vh;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="main-nav">
+        <div class="menu">
+            <div class="logo">
+                <a href="#">Sign</a>
+            </div>
+            <ul>
+                <li><a href="#" onclick="redirectToIndex()">Home</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Group Portfolio</h1>
+    </header>
+
+    <nav>
+        <ul class="Per">
+            <li class="Per1"><a href="#person1">Suryansh Singh</a></li>
+            <img src="/static/suryansh.jpg" alt="Image description" style="width: 210px; height: 220px; border-radius: 50%; margin-left: 100px; margin-top: -120px;">
+            <li class="infosuryansh"><a href="#info">Student at Amity University, Noida</a></li>
+            <li class="Per2"><a href="#person2">Aashir Hafeez</a></li>
+            <img src="/static/aashir.jpg" alt="Image description" style="width: 210px; height: 220px; border-radius: 50%; margin-left: 100px; margin-top: -110px;">
+            <li class="infoaashir"><a href="#info">Student at Amity University, Noida</a></li>
+            <li class="Per3"><a href="#person3">Ujjwal Singh</a></li>
+            <img src="/static/ujjwal.jpg" alt="Image description" style="width: 210px; height: 220px; border-radius: 50%; margin-left: 100px; margin-top: -100px;">
+            <li class="infoujjwal"><a href="#info">Student at Amity University, Noida</a></li>
+            <li class="Per4"><a href="#person4">Priyanshu Aggarwal</a></li>
+            <img src="/static/priyanshu.jpg" alt="Image description" style="width: 210px; height: 220px; border-radius: 50%; margin-left: 100px; margin-top: -110px;">
+            <li class="infopriyanshu"><a href="#info">Student at Amity University, Noida</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function redirectToAbout() {
+            window.location.href = "{{ url_for('redirect_about') }}";
+        }
+    </script>
+</body>
+<script>
+    function redirectToIndex() {
+        window.location.href = "{{ url_for('redirect_index') }}";
+    }
+</script>
+</html>

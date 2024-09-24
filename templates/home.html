@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+</head>
+
+<body>
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <li><a href="#" onclick="redirectToIndex()">Signs</a></li>
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <input type="text" id="what2Say" title="Type in here and the Sign Language spelling will appear below"
+        placeholder="Type here..." onchange="words2Faces(this.value)">
+
+    <div id="container">
+        <div id="aslContainer" title="ASL" class="asl asl-a"></div>
+        <!--<div id="templateFist" class="asl asl-a"></div>-->
+    </div>
+    <div id="spelledOut"></div>
+
+    <script src="/static/script.js">
+        var classArray = [];
+
+        function words2Faces(words) {
+            var allofEm = words.toLowerCase().split("");
+            for (var i = 0; i < allofEm.length; i++) {
+                if (allofEm[i] == "a") {
+                    allofEm[i] = "asl-a";
+                } else if (allofEm[i] == "b") {
+                    allofEm[i] = "asl-b";
+                } else if (allofEm[i] == "c") {
+                    allofEm[i] = "asl-c";
+                } else if (allofEm[i] == "d") {
+                    allofEm[i] = "asl-d";
+                } else if (allofEm[i] == "e") {
+                    allofEm[i] = "asl-e";
+                } else if (allofEm[i] == "f") {
+                    allofEm[i] = "asl-f";
+                } else if (allofEm[i] == "g") {
+                    allofEm[i] = "asl-g";
+                } else if (allofEm[i] == "h") {
+                    allofEm[i] = "asl-h";
+                } else if (allofEm[i] == "i") {
+                    allofEm[i] = "asl-i";
+                } else if (allofEm[i] == "j") {
+                    allofEm[i] = "asl-j";
+                } else if (allofEm[i] == "k") {
+                    allofEm[i] = "asl-k";
+                } else if (allofEm[i] == "l") {
+                    allofEm[i] = "asl-l";
+                } else if (allofEm[i] == "m") {
+                    allofEm[i] = "asl-m";
+                } else if (allofEm[i] == "n") {
+                    allofEm[i] = "asl-n";
+                } else if (allofEm[i] == "o") {
+                    allofEm[i] = "asl-o";
+                } else if (allofEm[i] == "p") {
+                    allofEm[i] = "asl-p";
+                } else if (allofEm[i] == "q") {
+                    allofEm[i] = "asl-q";
+                } else if (allofEm[i] == "r") {
+                    allofEm[i] = "asl-r";
+                } else if (allofEm[i] == "s") {
+                    allofEm[i] = "asl-s";
+                } else if (allofEm[i] == "t") {
+                    allofEm[i] = "asl-t";
+                } else if (allofEm[i] == "u") {
+                    allofEm[i] = "asl-u";
+                } else if (allofEm[i] == "v") {
+                    allofEm[i] = "asl-v";
+                } else if (allofEm[i] == "w") {
+                    allofEm[i] = "asl-w";
+                } else if (allofEm[i] == "x") {
+                    allofEm[i] = "asl-x";
+                } else if (allofEm[i] == "y") {
+                    allofEm[i] = "asl-y";
+                } else if (allofEm[i] == "z") {
+                    allofEm[i] = "asl-z";
+                }
+            }
+
+            return allofEm;
+        }
+
+        function loopEm(putMeHere) {
+            classArray = [];
+            var userText2 = document.getElementById("what2Say").value;
+            classArray = words2Faces(userText2);
+            var cal = classArray.length;
+            var classChanges = 0;
+            (function nextClass() {
+                setTimeout(function () {
+                    if (classChanges != 0) {
+                        classArray.push(classArray.shift());
+                    }
+                    var c = document.getElementById(putMeHere);
+                    c.className = "asl";
+                    c.classList.add(classArray[0]);
+                    classChanges++;
+                    if (classChanges < classArray.length + 1) {
+                        nextClass();
+                    } else {
+                        c.className = "";
+                        c.classList.add("asl");
+                        c.classList.add(classArray[classArray.length - 1]);
+                        return false;
+                    }
+                }, animationSpeed); // delay
+            })();
+
+            document.getElementById("spelledOut").innerHTML = "";
+
+            for (var i = 0; i < classArray.length; i++) {
+                if (classArray[i] === "asl-u" || classArray[i] === "asl-w" || classArray[i] === "asl-r" ||
+                    classArray[i] === "asl-k" || classArray[i] === "asl-z" || classArray[i] === "asl-v" ||
+                    classArray[i] === "asl-b" || classArray[i] === "asl-f" || classArray[i] === "asl-d") {
+                    document.getElementById("spelledOut").innerHTML += "<span class='asl3 " + classArray[i] + "' title='" +
+                        classArray[i].charAt(4) + "'></span><br/>";
+                } else if (classArray[i] === "asl-g" || classArray[i] === "asl-h") {
+                    document.getElementById("spelledOut").innerHTML += "<span class='asl4 " + classArray[i] + "' title='" +
+                        classArray[i].charAt(4) + "'></span><br/>";
+                } else {
+                    document.getElementById("spelledOut").innerHTML += "<span class='asl2 " + classArray[i] + "' title='" +
+                        classArray[i].charAt(4) + "'></span><br/>";
+                }
+            }
+        }
+
+        function aslContainer() {
+            loopEm("aslContainer");
+        }
+
+        // Link function to clicks on the body or pushing ENTER
+        document.getElementById("aslContainer").addEventListener("click", aslContainer);
+        document.addEventListener("keydown", keyDownHandler, false);
+
+        function keyDownHandler(e) {
+            if (e.keyCode == 13) {
+                loopEm("aslContainer");
+            }
+        }
+    </script>
+</body>
+
+<script>
+    function redirectToIndex() {
+        window.location.href = "{{ url_for('redirect_index') }}";
+    }
+</script>
+
+</html>

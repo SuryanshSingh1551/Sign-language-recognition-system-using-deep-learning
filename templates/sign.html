@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <a href="#">SLR</a>
+            </div>
+            <ul>
+                <li><a href="#" onclick="redirectToHome()">Signs</a></li>
+                <li><a href="#" onclick="redirectToAbout()">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="video-container">
+        <div class="video-wrapper">
+            <div class="video-box">
+                <img id="video" src="{{ url_for('video_feed') }}" alt="Video Stream">
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    function redirectToHome() {
+        window.location.href = "{{ url_for('redirect_home') }}";
+    }
+</script>
+<script>
+    function redirectToAbout() {
+        window.location.href = "{{ url_for('redirect_about') }}";
+    }
+</script>
+
+</html>
